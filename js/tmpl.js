@@ -33,6 +33,11 @@
     tmpl.templates = {};
     tmpl.cache = {};
     tmpl.load = function (id) {
+		if (typeof id === 'undefined' || id === null) {
+			console.warn("Template failure");
+			throw new Error("Template name cannot be empty");
+		}
+	
         if (tmpl.templates) {
             return tmpl.templates[id];
         } else {
